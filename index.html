@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="szerkezet.css" />   
+
+    <script src="jquery-3.6.0.min.js"></script>
+    <script src="ajax.js"></script>
+    <script src="task.js"></script>
+    <script src="script.js"></script>
+    <title>TaskManager - Antal Adry</title>
+</head>
+
+<body>
+    <main>
+        <header><h1>Task Manager</h1></header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Feladatok</a></li>
+                <li><a href="#">Felhasználók</a></li>
+             
+            </ul>
+        </nav>
+
+       
+        
+        <section id="rendezkeres">
+
+
+            <div >  
+                    
+                <fieldset> 
+                    <legend>Keresés feltétel szerint</legend>
+                    <select id="keresesi_feltetel">
+                        <option value="nev">Név</option>
+                        <option value="hatarido">Határidő</option>
+                        <option value="allapot">Állapot</option>
+                        <option value="keszito">Készítő</option>
+                           
+                <input type="text" id="keresfeltetel" placeholder="Keresés..">
+                <!-- <input type="button" id="mehet" value="Mehet"> -->
+            </fieldset>
+              </div>
+
+              <div > 
+            <div >  
+                    
+                <fieldset> 
+                    <legend>Keresés név szerint</legend>
+                <input type="text" id="keresnev" placeholder="Keresés..">
+                <!-- <input type="button" id="mehet" value="Mehet"> -->
+            </fieldset>
+              </div>
+
+              <div >  
+                    
+                <fieldset> 
+                    <legend>Keresés leírás szerint</legend>
+                <input type="text" id="keresleiras" placeholder="Keresés..">
+                <!-- <input type="button" id="mehet" value="Mehet"> -->
+            </fieldset>
+              </div>
+
+              <div >                     
+                <fieldset>
+                    <legend>Rendezés</legend>                   
+
+                <select id="rendezes">
+                  <option value="hat_novekvo">Határidő szerint növekvő</option>
+                  <option value="hat_csokk">Határidő csökkenő</option>
+               
+               
+                </select>
+
+            </fieldset>
+              </div>
+
+        </section>
+        
+        <section class="sablonhoz">
+            <div class="task">
+                <h3 class="tasknev">Tasknév</h3>            
+                <p class="taskleiras">
+                    Ez a task leírása.
+                </p>
+               <ul class="taskadatok">
+                   <li class="hatarido">Határidő</li>
+                   <li class="elkeszito_neve">Elkészítő neve</li>
+                   <li class="allapot">Állapot</li>
+               </ul>
+               <div id="gombok">
+                <div class="torles"><button>Töröl</button></div>
+                <div class="modositas"><button>Módosít</button></div>
+               </div>
+            </div>  
+        </section>   
+
+        <article id="taskkontener">
+           
+
+           
+        </article>
+
+
+        <section id="adatmanipulacio">      
+            <div id="adatbeszuras">
+                <fieldset>
+                <legend>Új task rögzítése</legend>
+                <form>                    
+                    <label for="inputTaskNev">Tasknév: </label>
+                    <input type="text" id="inputTaskNev" name="inputTaskNev"><br>
+                    <label for="inputTaskLeiras">Leírás: </label><br>
+                    <textarea id="inputTaskLeiras" name="inputTaskLeiras"></textarea><br>
+                    <label for="inputTaskHatarido">Határidő: </label>
+                    <input type="date" id="inputTaskHatarido" name="inputTaskHatarido"><br>
+                    <label for="inputTaskAllapot">Task állapota: </label>
+                    <input type="text" id="inputTaskAllapot" name="inputTaskAllapot"><br>
+                    <label for="inputElkeszito">Elkészítő neve: </label>
+                    <input type="text" id="inputElkeszito" name="inputElkeszito"><br>
+                    
+                  </form>
+                  <button id="beszur">Beszúr</button>
+                </fieldset>
+            </div>
+            <div id="adatbeszuras">
+                <fieldset>
+                <legend>Adat módosítása</legend>
+                <form>
+                    <label for="modTaskID">Task ID: </label>
+                    <input type="number" id="modTaskID" name="modTaskID" disabled><br>
+                    <label for="modTaskNev">Tasknév: </label>
+                    <input type="text" id="modTaskNev" name="modTaskNev"><br>
+                    <label for="modTaskLeiras">Leírás: </label><br>
+                    <textarea id="modTaskLeiras" name="modTaskLeiras"></textarea><br>
+                    <label for="modTaskHatarido">Határidő: </label>
+                    <input type="date" id="modTaskHatarido" name="modTaskHatarido"><br>
+                    <label for="modTaskAllapot">Task állapota: </label>
+                    <input type="text" id="modTaskAllapot" name="modTaskAllapot"><br>
+                    <label for="modElkeszito">Elkészítő neve: </label>
+                    <input type="text" id="modElkeszito" name="modElkeszito"><br>
+                    
+                  </form>
+                  <button id="modosit_form">Módosít</button> 
+                </fieldset>
+            </div>
+
+        </section>
+
+
+
+        <footer>Készítette: Antal Adrienn</footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+{
+  "taskok": [
+    {
+      "id": "1",
+      "nev": "Task1",
+      "leiras": "Leiras1",
+      "allapot": "folyamatban",
+      "hatarido": "2021-12-23",
+      "elkesziti": "User1"
+    },
+    {
+      "id": "2",
+      "nev": "Task2",
+      "leiras": "Leiras2",
+      "allapot": "kész",
+      "hatarido": "2021-12-12",
+      "elkesziti": "User1"
+    },
+    {
+      "id": "3",
+      "nev": "Task3",
+      "leiras": "Leiras3",
+      "allapot": "elvégzendő",
+      "hatarido": "2021-12-29",
+      "elkesziti": "User2"
+    },
+    {
+      "id": "4",
+      "nev": "Task4",
+      "leiras": "Leiras4",
+      "allapot": "törlendő",
+      "hatarido": "2021-12-20",
+      "elkesziti": "User2"
+    },
+    {
+      "id": "5",
+      "nev": "Task5",
+      "leiras": "Leiras5",
+      "allapot": "kész",
+      "hatarido": "2021-12-10",
+      "elkesziti": "User1"
+    },
+    {
+      "id": "6",
+      "nev": "Task6",
+      "leiras": "Leiras6",
+      "allapot": "elvégzendő",
+      "hatarido": "2021-12-30",
+      "elkesziti": "User4"
+    },
+    {
+      "nev": "Task12",
+      "leiras": "Ez egy leírás, amelyben keresni is lehet kulcsszó szerint.",
+      "allapot": "kész",
+      "hatarido": "2021-12-10",
+      "elkesziti": "User2",
+      "id": "eXiAuPl"
+    }
+  ],
+  "userek": [
+    {
+      "id": "1",
+      "nev": "User1"
+    },
+    {
+      "id": "2",
+      "nev": "User2"
+    },
+    {
+      "id": "3",
+      "nev": "User3"
+    },
+    {
+      "id": "4",
+      "nev": "User4"
+    },
+    {
+      "id": "5",
+      "nev": "User5"
+    },
+    {
+      "id": "6",
+      "nev": "User6"
+    }
+  ]
+}
