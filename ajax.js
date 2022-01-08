@@ -5,6 +5,7 @@ class SajatAjax{
        /*GET - ADATOK LEKÉRÉSE*/
       //apiVegpont: ahol megkapja a szervertől (ill. azon keresztül az adatbázistól) a (frissített ill. adott esetben szűrt) adatokat
     getAjax(apiVegpont, tomb, myCallback) {
+
        tomb.splice(0,tomb.length); //tömb ürítése, hogy többszöri lefutáskor ne legyen hozzáfűzés
        $.ajax({
          url: apiVegpont,
@@ -16,6 +17,7 @@ class SajatAjax{
            myCallback(tomb);   //ha a tömb már teljesen feltöltődött, átadható paraméterként egy függvénynek
          },
        });
+       console.log('getajax lefutott')
      }
 
 

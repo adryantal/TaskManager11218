@@ -3,13 +3,13 @@ $(function () {
     const taskTomb = [];
     let apiVegpont = "http://localhost:3000/taskok";
     const sajatAjax = new SajatAjax();
-
+  
     sajatAjax.getAjax(apiVegpont,taskTomb, taskLista);
 
     /*TASKOK MEGJELENÍTÉSE (index.html)*/
   function taskLista(tomb) {                 
-    const szuloElem = $('#taskkontener')
-    const sablonElem = $('.sablonhoz .task') //a .sablonhoz alatti .task lesz az új sablonelem, a multiplikálódás elkerülése végett
+    const szuloElem = $('#taskkontener');
+    const sablonElem = $('.sablonhoz .task'); //a .sablonhoz alatti .task lesz az új sablonelem, a multiplikálódás elkerülése végett
     szuloElem.empty();                        //szülőelem ürítése, hogy többszöri lefutáskor ne legyen hozzáfűzés
     sablonElem.show();    
     tomb.forEach(function (elem) {                
@@ -84,7 +84,7 @@ $("#keresnev").on("input",()=>{
     let szoveg=$("#keresnev").val();
     //console.log(szoveg);
     const feltetel="?nev_like="+szoveg;
-    filtered=apiVegpont+feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához
+    let filtered=apiVegpont+feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához
     sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése 
    });
   
@@ -93,30 +93,52 @@ $("#keresleiras").on("input",()=>{
     let szoveg=$("#keresleiras").val();
     //console.log(szoveg);
     const feltetel="?leiras_like="+szoveg;
-    filtered=apiVegpont+feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához
+    let filtered=apiVegpont+feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához
     sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése 
+
    });
 
 
-//        /*KERESÉS feltétel szerint - legördülő listából + szövegmezőből direktben*/
-// $("#keresfeltetel").on("input",()=>{
-//     $("#keresesi_feltetel").on("change",()=>{
-//         let kivOpcio = $( "#keresesi_feltetel" ).val();
-//         //console.log(kivOpcio);
-//         let rendez;
-//         if (kivOpcio=="nev"){
-//          rendez="?_sort=hatarido&_order=asc"};
+
+
+
+
+
+        /*KERESÉS feltétel szerint - legördülő listából + szövegmezőből direktben*/
+       
          
-//          }
+       
+   $("#keresesi_szempont").on("change",()=>{
+      
+        szempont = $( "#keresesi_szempont" ).val();
+       console.log(szempont);          
+             
+      $("#keresfeltetelszerint").keyup(()=>{     
+           
+       let szoveg=$("#keresfeltetelszerint").val();
+      let feltetel="?"+szempont+"_like="+szoveg;         
+      let filtered = apiVegpont+feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához       
+       console.log(filtered); 
+     
+       sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése      
+       
+     
+     
+      });
+      
+     
+        
+   });
 
- 
+
+   
 
 
-//     //console.log(szoveg);
-//     const feltetel="?leiras_like="+szoveg;
-//     filtered=apiVegpont+feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához
-//     sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése 
-//    });
+         
+    
+        
+
+  
 
 
 })
