@@ -17,7 +17,7 @@ class SajatAjax{
            myCallback(tomb);   //ha a tömb már teljesen feltöltődött, átadható paraméterként egy függvénynek
          },
        });
-       console.log('getajax lefutott')
+       console.log('getajax lefutott');
      }
 
 
