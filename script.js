@@ -11,12 +11,12 @@ $(function () {
     const sablonElem = $(".sablonhoz .task"); //a .sablonhoz alatti .task lesz az új sablonelem, a multiplikálódás elkerülése végett
     szuloElem.empty(); //szülőelem ürítése, hogy többszöri lefutáskor ne legyen hozzáfűzés
     sablonElem.show();
-    //console.log(tomb);
+    console.log(tomb);
     tomb.forEach(function (elem) {
       let node = sablonElem.clone().appendTo(szuloElem); //
       const obj = new Task(node, elem);
     });
-    tomb.splice(0,tomb.length) //ez az összetett keresés miatt kell(select/option + keresőmező együttes használata)
+    tomb.splice(0,tomb.length) //ez az összetett keresés miatt kell(select/option + keresőmező együttes használata), ha az én megoldásomat nézzük
     //sablonElem.remove() //sablonelem eltávolítása
     sablonElem.hide();
   }
@@ -99,8 +99,9 @@ $(function () {
     sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése
   });
 
-  /*KERESÉS feltétel szerint - legördülő listából + szövegmezőből direktben - HIBÁS!!!!!!!!!!!!*/
+  /*KERESÉS feltétel szerint - legördülő listából + szövegmezőből direktben*/
 
+  /*
   $("#keresesi_szempont").on("change", () => {
     szempont = $("#keresesi_szempont").val();
     console.log(szempont);
@@ -114,4 +115,27 @@ $(function () {
       sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése
     });
   });
+
+*/
+
+
+
+  //Az volt a hiba, amire gondoltam: Az a baj, hogy bele volt ágyazva a keresési szempont legördülő 
+  //eseménykezelőjébe a keresésfeltételszerint eseménykezelője. Ezért a második keresésnél már másodszor is rátette az eseménykezelőt, 
+  //így az kt példányban volt jelen, ezért kétszer futott le. 
+  //Nem tudom az órán miért nem sikerült ezt megoldani, de az a megoldás, hogy meg kell szüntetni az egymásba ágyazást, Nálam most helyesen működik
+
+  $("#keresesi_szempont").on("change", () => { 
+    $("#keresfeltetelszerint").val(""); 
+}); 
+  $("#keresfeltetelszerint").keyup(() => { 
+    szempont = $("#keresesi_szempont").val(); 
+    console.log(szempont); 
+    let szoveg = $("#keresfeltetelszerint").val(); 
+    let feltetel = "?" + szempont + "_like=" + szoveg; 
+    let filtered = apiVegpont + feltetel; ///szűrési feltétel hozzáadása az API végpont útvonalához 
+    console.log(filtered); sajatAjax.getAjax(filtered, taskTomb, taskLista); //szűrt adatok lekérése, megjelenítése 
+  });
+
+
 });
